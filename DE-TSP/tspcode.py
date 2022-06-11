@@ -66,20 +66,7 @@ def drawMap(solution):
                count  = count +1 
     plt.show()
 
-#Measure the distance travelled in a solution
-##def measure(solution):
-##    verify(solution)
-##                 
-##    prev = start
-##    dist =0;
-##    for city in solution:
-##       loc = (problem.loc[city].Lattitude,problem.loc[city].Longitude)
-##        d = findroute(prev,loc)
-##        dist = dist + d
-##        prev = loc
-##        d = findroute(loc,prev)
-##    dist = dist + d
-##    return dist
+
 
 #Measure the distance travelled in a solution
 def measure(solution):
@@ -147,16 +134,16 @@ def neighbour(city,options):
 ##    i1, i2 = random.sample(idx, 2)
 ##    seq[i1], seq[i2] = seq[i2], seq[i1]
 
-def random_change(seq):
+def random_change_5(seq):
     c= random.randint(1,3)
     if c==1:
-        return move_random(seq)
+        return random_change_1(seq)
     if c==2:
-        return swap_random(seq)
+        return random_change_2(seq)
     if c==3:
-        return two_opt_swap(seq)
+        return random_change_3(seq)
     
-def move_random(seq):
+def random_change_1(seq):
     idx = range(len(seq))
     i1, i2 = random.sample(idx, 2)
     c= seq[i1]
@@ -164,20 +151,19 @@ def move_random(seq):
     seq = seq[:i2] + c + seq[i2:]
     return seq
 
-def shuffle(st):
+def random_change_4(st):
     seq = list(st)
     random.shuffle(seq)
-    print(seq)
     return ''.join(seq)
 
-def swap_random(st):
+def random_change_2(st):
     seq = list(st)
     idx = range(len(seq))
     i1, i2 = random.sample(idx, 2)
     seq[i1], seq[i2] = seq[i2], seq[i1]
     return ''.join(seq)
 
-def two_opt_swap(st):
+def random_change_3(st):
     seq = list(st)
     idx = range(len(seq))
     i1, i2 = random.sample(idx, 2)
