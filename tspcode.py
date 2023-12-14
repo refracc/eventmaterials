@@ -48,7 +48,7 @@ def findroute(start, end):
 def getRoute(solution):
     return ""
 
-def drawMap(solution):
+def draw_map(solution):
     count=1
     plt.rcParams["figure.figsize"] = [17.00, 13.50]
     plt.rcParams["figure.autolayout"] = True
